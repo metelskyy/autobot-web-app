@@ -1,31 +1,16 @@
-import { useEffect } from "react";
 import Select from "react-select";
 import { BRANDS_OPTIONS, CITIES_OPTIONS } from "../../constats";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useTelegram } from "../../hooks";
+import { Fields, IFormInputs } from "../../types";
 
-interface IFormInputs {
-  city: string;
-  brand: string;
+interface Props {
+  onSubmit: SubmitHandler<IFormInputs>;
 }
 
-type Fields = keyof IFormInputs;
-
-export const Form = () => {
+export const Form: React.FC<Props> = ({ onSubmit }) => {
   const { handleSubmit, setValue } = useForm<IFormInputs>({
     defaultValues: { city: "", brand: "" },
   });
-
-  const tg = useTelegram();
-
-  useEffect(() => {
-    tg.MainButton.setParams({ text: "Создать" });
-    tg.MainButton.onClick(onSubmit);
-  }, []);
-
-  const onSubmit: SubmitHandler<IFormInputs> = (data) => {
-    tg.sendData(data);
-  };
 
   const onChange = (
     name: Fields,
