@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Select, { SingleValue } from "react-select";
+import { useEffect } from "react";
+import Select from "react-select";
 import { BRANDS_OPTIONS, CITIES_OPTIONS } from "../../constats";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useTelegram } from "../../hooks";
@@ -12,7 +12,7 @@ interface IFormInputs {
 type Fields = keyof IFormInputs;
 
 export const Form = () => {
-  const { register, handleSubmit, watch, setValue } = useForm<IFormInputs>({
+  const { handleSubmit, setValue } = useForm<IFormInputs>({
     defaultValues: { city: "", brand: "" },
   });
 
