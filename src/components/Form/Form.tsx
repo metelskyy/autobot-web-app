@@ -1,7 +1,8 @@
-import Select from "react-select";
-import { BRANDS_OPTIONS, CITIES_OPTIONS } from "../../constats";
+import { BRANDS_OPTIONS, CITIES_OPTIONS, PLACEHOLDERS } from "../../constats";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Fields, IFormInputs } from "../../types";
+import Select from "react-select";
+import s from "./styles.module.css";
 
 interface Props {
   onSubmit: SubmitHandler<IFormInputs>;
@@ -26,6 +27,8 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Select
+        placeholder={PLACEHOLDERS.city}
+        className={s.select}
         required
         autoFocus
         isSearchable
@@ -34,6 +37,8 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
         onChange={(field) => onChange("city", field)}
       />
       <Select
+        placeholder={PLACEHOLDERS.brand}
+        className={s.select}
         required
         isSearchable
         name="brand"

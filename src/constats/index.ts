@@ -1,5 +1,10 @@
 export const TITLE = "Выберите критерии";
 
+export const PLACEHOLDERS = {
+  city: "Выберите город",
+  brand: "Выберите марку",
+};
+
 export const CITIES_OPTIONS = [
   { value: "", label: "Вся Беларусь" },
   { value: "Минск", label: "Минск" },
