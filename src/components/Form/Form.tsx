@@ -45,6 +45,7 @@ export const Form: React.FC<Props> = ({ onSubmit }) => {
         options={BRANDS_OPTIONS}
         onChange={(field) => onChange("brand", field)}
       />
+      <button type="submit">submit</button>
     </form>
   );
 };

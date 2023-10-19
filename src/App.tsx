@@ -29,13 +29,11 @@ function App() {
     }
   };
   return (
-    <>
+    <div className="main-container">
       <h1 style={{ marginBottom: 30 }}>{TITLE}</h1>
-      {error ? (
-        <p style={{ color: "red", marginBottom: 30 }}>Что-то пошло не так</p>
-      ) : null}
+      {error ? <p style={{ color: "red", marginBottom: 30 }}>{error}</p> : null}
       <Form onSubmit={onSubmit} />
-    </>
+    </div>
   );
 }
 
