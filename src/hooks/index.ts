@@ -1,5 +1,12 @@
+import { useEffect } from "react";
+
 export function useTelegram() {
-  const tg = Telegram.WebApp;
+  //@ts-ignore
+  const tg = window.Telegram.WebApp;
+
+  useEffect(() => {
+    tg.expand();
+  }, []);
 
   return tg;
 }
